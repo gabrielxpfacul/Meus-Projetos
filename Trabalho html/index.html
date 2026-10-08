@@ -1,4 +1,3 @@
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -16,6 +15,20 @@
 
   <h2>Seja Bem Vindo!</h2>
   <p>O melhor,do melhor para o melhor!</p>
+
+  <aside> 
+    <form action="index.html" method="get">
+    <label for="busca">Buscar:</label>
+    <input type="search" id="busca" name="q" placeholder="Digite o nome do produto">
+    <select name="categoria" id="categoria">
+      <option value="">Todas as categorias</option>
+      <option value="mouse">Mouse</option>
+      <option value="teclado">Teclado</option>
+      <option value="fones">Fones de Ouvido</option>
+    </select>
+    <button type="submit">Buscar</button>
+  </form></aside>
+
 </header>
 
 <nav>
@@ -143,10 +156,67 @@
   <source src="videos/video.webm" type="video/webm">
   </video>
 
-<br><br>
+<br>
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
+<br><br>
+<hr><hr>
+
+<form action="processa-pedido.html" method="post">
+  <fieldset>
+
+    <legend>Formulário de Pedido</legend>
+
+  <p>Preencha os Dados Pessoais abaixo:</p>
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" required>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" required>
+  <label for="nascimento">Data de Nascimento:</label>
+  <input type="date" name="nascimento" required><br><br>
+  
+<p>Area do Produto</p>
+
+<br>
+
+  <label for="produto">Produto:</label>
+  <input type="text" id="produto" name="produto" required>
+
+  <br><br>
+
+  <label for="quantidade">Quantidade:</label>
+  <input type="number" id="quantidade" name="quantidade" min="1" max="5" required><br><br>
+    <label for="pagamento">Forma de Pagamento:</label>
+  <select name="pagamento" id="pagamento" required>
+    <option value="">Selecione a Forma de Pagamento</option>
+    <option value="pix">PIX</option>
+    <option value="cartao">Cartão de Crédito</option>
+    <option value="boleto">Boleto Bancário</option>
+  </select><br><br>
+  <label for="entrega">Entrega:</label> <br>
+  <input type="radio" id="entrega" name="entrega" value="expressa" required>
+  <label for="entrega">Entrega Expressa</label><br>
+  <input type="radio" id="entrega" name="entrega" value="normal" required>
+  <label for="entrega">Entrega Normal</label><br><br>
+</select>
+<p>Observações:</p>
+<textarea name="observacoes" rows="4" cols="40" placeholder="Ponto de Referência,Instruções de Entrega..."></textarea><br><br>
+<p> Termos e Condições:</p>
+<input type="checkbox" id="termos" name="termos" required>
+<label for="termos">Aceito os termos e condições</label><br>
+<input type="checkbox" id="ofertas" name="ofertas">
+<label for="ofertas">Desejo receber ofertas e novidades por email</label><br><br>
+
+
+  <button type="submit" value="Finalizar Pedido">Finalizar Pedido</button>
+  <button type="reset" value="Limpar Formulário">Limpar Formulário</button>
+
+</form>
+</fieldset>
 
 <hr><hr>
 
