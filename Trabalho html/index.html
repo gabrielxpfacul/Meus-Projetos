@@ -1,8 +1,9 @@
+
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="CSS/estilo.css" />
   <title>Minha Loja de Tecnologia</title>
 </head>
 
@@ -16,21 +17,8 @@
   <h2>Seja Bem Vindo!</h2>
   <p>O melhor,do melhor para o melhor!</p>
 
-  <aside> 
-    <form action="index.html" method="get">
-    <label for="busca">Buscar:</label>
-    <input type="search" id="busca" name="q" placeholder="Digite o nome do produto">
-    <select name="categoria" id="categoria">
-      <option value="">Todas as categorias</option>
-      <option value="mouse">Mouse</option>
-      <option value="teclado">Teclado</option>
-      <option value="fones">Fones de Ouvido</option>
-    </select>
-    <button type="submit">Buscar</button>
-  </form></aside>
-
+ 
 </header>
-
 <nav>
   <ul>
     <li><a href="#produtos">Produtos</a></li>
@@ -43,6 +31,21 @@
 <strong>Atendimento de Qualidade e Frete Grátis para todo o Brasil!</strong>
 
 <hr>
+<div class="layout-conteudo">
+<aside> 
+    <form action="index.html" method="get">
+    <label for="busca">Buscar:</label>
+    <input type="search" id="busca" name="q" placeholder="Digite o nome do produto">
+    <select name="categoria" id="categoria">
+      <option value="">Todas as categorias</option>
+      <option value="mouse">Mouse</option>
+      <option value="teclado">Teclado</option>
+      <option value="fones">Fones de Ouvido</option>
+    </select>
+    <button type="submit">Buscar</button>
+  </form>
+</aside>
+
 <main>
 <section id="produtos" class="container-catalogo inicial">
 <h2>Produtos em Destaque</h2>
@@ -65,7 +68,7 @@
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
-
+<article id="razer">
 <h3>Mouse Gamer Razer DeathAdder V2</h3>
 <img src="dav3hyperspeed.webp" alt="Mouse Gamer Razer DeathAdder V2" width="225" height="200" />
 <span><p>Preço: R$ 399,99</p></span><b>A vista no PIX!</b>
@@ -83,6 +86,7 @@
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
+</section>
 
 <article id="Teclados">
 <h3>Logitech MX Mechanical</h3>
@@ -94,15 +98,17 @@
 </section>
 
 <video controls width="225" height="200">
-  <source src="videos/video.mp4" type="video/mp4">
-  <source src="videos/video.webm" type="video/webm">
+  <source src="https://github.com/gabrielxpfacul/Meus-Projetos/raw/a40a014e8f6fc9483fc1e78e019401d4cbdd6bd33/Trabalho%20html/demonstracaoteclado1.mp4" type="video/mp4">
+  seu navegador não suporta o elemento de vídeo.
+  <source src="videos/demonstracaoteclado1.webm" type="video/webm">
+  seu navegador não suporta o elemento de vídeo.
   </video>
 
 <br><br>
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
-
+<article id="keychron">
 <h3>Keychron K2 HE</h3>
 <img src="Keychron-K2-HE.webp" alt="Keychron K2 HE" width="225" height="200" />
 <span><p>Preço: R$ 399,99</p></span><b>A vista no PIX!</b>
@@ -120,6 +126,7 @@
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
+</section>
 
 <hr>
 
@@ -141,7 +148,7 @@
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
-
+<article id="jbl">
 <h3>JBL Tour One M2</h3><br>
 <img src="JBL_Tour_One_M2.webp" alt="JBL Tour One M2" width="225" height="200" />
 <span><p>Preço: R$ 299,99</p></span><b>A vista no PIX!</b>
@@ -160,6 +167,7 @@
 <a href="#carrinho">Adicionar ao Carrinho</a><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
+</section>
 <br><br>
 <hr><hr>
 
@@ -186,7 +194,6 @@
   <label for="produto">Produto:</label>
   <input type="text" id="produto" name="produto" required>
 
-  <br><br>
 
   <label for="quantidade">Quantidade:</label>
   <input type="number" id="quantidade" name="quantidade" min="1" max="5" required><br><br>
@@ -202,7 +209,6 @@
   <label for="entrega">Entrega Expressa</label><br>
   <input type="radio" id="entrega" name="entrega" value="normal" required>
   <label for="entrega">Entrega Normal</label><br><br>
-</select>
 <p>Observações:</p>
 <textarea name="observacoes" rows="4" cols="40" placeholder="Ponto de Referência,Instruções de Entrega..."></textarea><br><br>
 <p> Termos e Condições:</p>
@@ -215,8 +221,8 @@
   <button type="submit" value="Finalizar Pedido">Finalizar Pedido</button>
   <button type="reset" value="Limpar Formulário">Limpar Formulário</button>
 
-</form>
 </fieldset>
+</form>
 
 <hr><hr>
 
@@ -235,11 +241,6 @@
 <P>Lista de produtos adicionados ao carrinho:</P>
 <a href="#carrinho">Finalizar Compra</a>
 </aside>
-
-</main>
-
-<br><br>
-<hr><hr>
 
 <table>
   <section id="comparacao" class="comparacao">
@@ -288,6 +289,17 @@
 </section>
     </table>
   </section>
+
+
+
+</main>
+</div>
+<br><br>
+<hr><hr>
+
+
+    </table>
+  </section>
 <br><br>
 <hr><hr>
 
@@ -296,6 +308,9 @@
 <h6>siga-nos nas <a href="https://www.instagram.com/techstore" target="_blank">redes sociais</a> para promoções exclusivas e novidades do mundo da tecnologia!</h6>
 <h6>políticas e atendimento ao cliente disponíveis em <a href="https://www.techstore.com.br/politicas">nosso site</a>.</h6>
 <p>Copyright e direitos autorais: © 2024 CNPJ:<TechStore class="CNPJ">12.345.678/0001-90</TechStore> Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
 </footer>
 </body>
 </html>
