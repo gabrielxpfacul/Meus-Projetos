@@ -1,4 +1,3 @@
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -67,7 +66,7 @@
   </video>
 
 <br><br>
-<a href="#carrinho">Adicionar ao Carrinho</a><br><br>
+<button type="button" class="adicionar-carrinho">Adicionar ao Carrinho</button><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
 <article id="razer">
@@ -87,7 +86,7 @@
   </video>
 
 <br><br>
-<a href="#carrinho">Adicionar ao Carrinho</a><br><br>
+<button type="button" class="adicionar-carrinho">Adicionar ao Carrinho</button><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
 </section>
@@ -109,7 +108,7 @@
   </video>
 
 <br><br>
-<a href="#carrinho">Adicionar ao Carrinho</a><br><br>
+<button type="button" class="adicionar-carrinho">Adicionar ao Carrinho</button><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
 <article id="keychron">
@@ -129,7 +128,7 @@
   </video>
 
 <br><br>
-<a href="#carrinho">Adicionar ao Carrinho</a><br><br>
+<button type="button" class="adicionar-carrinho">Adicionar ao Carrinho</button><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
 </section>
@@ -153,7 +152,7 @@
   </video>
 
 <br><br>
-<a href="#carrinho">Adicionar ao Carrinho</a><br><br>
+<button type="button" class="adicionar-carrinho">Adicionar ao Carrinho</button><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
 <article id="jbl">
@@ -174,14 +173,14 @@
   </video>
 
 <br>
-<a href="#carrinho">Adicionar ao Carrinho</a><br><br>
+<button type="button" class="adicionar-carrinho">Adicionar ao Carrinho</button><br><br>
 <em>Produto com garantia de 12 meses.</em>
 </article>
 </section>
 <br><br>
 <hr><hr>
 
-<form action="processa-pedido.html" method="post">
+<form action="processa-pedido.html" method="post" novalidate>
   <fieldset>
 
     <legend>Formulário de Pedido</legend>
@@ -193,20 +192,39 @@
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required><br><br>
   <label for="senha">Senha:</label>
-  <input type="password" id="senha" name="senha" required>
+  <input type="password" id="senha" name="senha" minlength="6" required>
   <label for="nascimento">Data de Nascimento:</label>
-  <input type="date" name="nascimento" required><br><br>
+  <input type="date" id="nascimento" name="nascimento" required><br><br>
+  <label for="cep">CEP:</label>
+  <input type="text" id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000" aria-describedby="resultado-frete" required>
+  <button type="button" id="calcular-frete">Calcular frete</button>
+  <p id="resultado-frete" aria-live="polite"></p>
   
 <p>Area do Produto</p>
 
 <br>
 
   <label for="produto">Produto:</label>
-  <input type="text" id="produto" name="produto" required>
+  <select id="produto" name="produto" required>
+    <option value="">Selecione um produto</option>
+    <option value="Logitech MX Master 3S">Logitech MX Master 3S</option>
+    <option value="Mouse Gamer Razer DeathAdder V2">Mouse Gamer Razer DeathAdder V2</option>
+    <option value="Logitech MX Mechanical">Logitech MX Mechanical</option>
+    <option value="Keychron K2 HE">Keychron K2 HE</option>
+    <option value="Sony WH-1000XM5">Sony WH-1000XM5</option>
+    <option value="JBL Tour One M2">JBL Tour One M2</option>
+  </select>
 
 
   <label for="quantidade">Quantidade:</label>
-  <input type="number" id="quantidade" name="quantidade" min="1" max="5" required><br><br>
+  <select id="quantidade" name="quantidade" required>
+    <option value="">Selecione a quantidade</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select><br><br>
     <label for="pagamento">Forma de Pagamento:</label>
   <select name="pagamento" id="pagamento" required>
     <option value="">Selecione a Forma de Pagamento</option>
@@ -214,11 +232,13 @@
     <option value="cartao">Cartão de Crédito</option>
     <option value="boleto">Boleto Bancário</option>
   </select><br><br>
-  <label for="entrega">Entrega:</label> <br>
-  <input type="radio" id="entrega" name="entrega" value="expressa" required>
-  <label for="entrega">Entrega Expressa</label><br>
-  <input type="radio" id="entrega" name="entrega" value="normal" required>
-  <label for="entrega">Entrega Normal</label><br><br>
+  <label>Entrega:</label>
+  <div id="opcoes-entrega">
+    <input type="radio" id="entrega-expressa" name="entrega" value="expressa" required>
+    <label for="entrega-expressa">Entrega Expressa</label><br>
+    <input type="radio" id="entrega-normal" name="entrega" value="normal" required>
+    <label for="entrega-normal">Entrega Normal</label>
+  </div><br>
 <p>Observações:</p>
 <textarea name="observacoes" rows="4" cols="40" placeholder="Ponto de Referência,Instruções de Entrega..."></textarea><br><br>
 <p> Termos e Condições:</p>
@@ -247,10 +267,25 @@
 </aside>
 
 <aside id="carrinho">
-<h5>Meu Carrinho de Compras</h5>
-<P>Lista de produtos adicionados ao carrinho:</P>
-<a href="#carrinho">Finalizar Compra</a>
+<h2>Meu Carrinho de Compras</h2>
+<p>Lista de produtos adicionados ao carrinho:</p>
+<ul id="lista-carrinho" aria-live="polite">
+  <li>Seu carrinho está vazio.</li>
+</ul>
+<p id="total-carrinho">Total: R$ 0,00</p>
+<p id="status-carrinho" aria-live="polite"></p>
+<button type="button" id="finalizar-compra">Finalizar Compra</button>
 </aside>
+
+<dialog id="confirmacao-compra" aria-labelledby="titulo-confirmacao">
+  <h2 id="titulo-confirmacao">Confirme seu pedido</h2>
+  <p>Confira os produtos antes de concluir a compra:</p>
+  <ul id="lista-confirmacao"></ul>
+  <p id="total-confirmacao"></p>
+  <p id="mensagem-compra" aria-live="polite"></p>
+  <button type="button" id="confirmar-pedido">Confirmar compra</button>
+  <button type="button" id="voltar-carrinho">Voltar ao carrinho</button>
+</dialog>
 
 <table>
   <section id="comparacao" class="comparacao">
@@ -319,5 +354,6 @@
 <h6>políticas e atendimento ao cliente disponíveis em <a href="https://www.techstore.com.br/politicas">nosso site</a>.</h6>
 <p>Copyright e direitos autorais: © 2024 CNPJ:<TechStore class="CNPJ">12.345.678/0001-90</TechStore> Todos os direitos reservados.</p>
 </footer>
+<script src="js/script.js/script.js" defer></script>
 </body>
 </html>
